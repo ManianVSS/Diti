@@ -1,0 +1,10 @@
+set mode=production
+set DATABASE__NAME=diti
+set DATABASE__USER=ditiadmin
+set DATABASE__PASSWORD=ditiadmin@123
+set DATABASE__HOST=localhost
+set DATABASE__PORT=5432
+
+cd diti_server 
+python manage.py runserver 0.0.0.0:8000 --insecure
+cd ..

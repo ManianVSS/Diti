@@ -1,0 +1,3 @@
+create database diti;
+create user ditiadmin with encrypted password 'ditiadmin@123';
+grant all privileges on database diti to ditiadmin;

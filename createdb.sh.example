@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo -u postgres psql -c "create database diti"
+sudo -u postgres psql -c "create user ditiadmin with encrypted password 'ditiadmin@123'"
+sudo -u postgres psql -c "grant all privileges on database diti to ditiadmin"
+
+./migrate.sh

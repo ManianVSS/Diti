@@ -1,0 +1,11 @@
+#!/bin/bash
+export mode=production
+export DATABASE__NAME=diti
+export DATABASE__USER=ditiadmin
+export DATABASE__PASSWORD=ditiadmin@123
+export DATABASE__HOST=localhost
+export DATABASE__PORT=5432
+
+cd diti_server 
+python3 manage.py runserver 0.0.0.0:8000 --insecure
+cd ..
