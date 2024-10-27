@@ -9,7 +9,8 @@ from .serializers import UserSerializer, GroupSerializer, OrgGroupSerializer, Co
 
 exact_fields_filter_lookups = ['exact', ]
 # many_to_many_id_field_lookups = ['contains']
-id_fields_filter_lookups = ['exact', 'in', ]
+id_fields_filter_lookups = ['exact', 'in']
+fk_fields_filter_lookups = ['exact', 'in', 'isnull']
 string_fields_filter_lookups = ['exact', 'iexact', 'icontains', 'regex', ]
 # 'startswith', 'endswith', 'istartswith','iendswith', 'contains',
 compare_fields_filter_lookups = ['exact', 'lte', 'lt', 'gt', 'gte', ]
@@ -165,8 +166,8 @@ class OrgGroupViewSet(DitiOrgGroupViewSet):
         'id': id_fields_filter_lookups,
         'name': string_fields_filter_lookups,
         'summary': string_fields_filter_lookups,
-        'auth_group': id_fields_filter_lookups,
-        'org_group': id_fields_filter_lookups,
+        'auth_group': fk_fields_filter_lookups,
+        'org_group': fk_fields_filter_lookups,
         'leaders': exact_fields_filter_lookups,
         'members': exact_fields_filter_lookups,
         'guests': exact_fields_filter_lookups,

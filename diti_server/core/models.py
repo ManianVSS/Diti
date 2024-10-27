@@ -5,18 +5,6 @@ from django.db.models import Q, TextField
 
 # Create your models here.
 
-class MyGroup(Group):
-    class Meta:
-        proxy = True
-        verbose_name = 'Group'
-
-
-class MyUser(User):
-    class Meta:
-        proxy = True
-        verbose_name = 'User'
-
-
 class BaseModel(models.Model):
     class Meta:
         abstract = True
@@ -234,14 +222,6 @@ class OrgModel(BaseModel):
                                            )
                                            | Q(org_group__pk__in=org_groups_where_read_privilege)
                                            ).distinct()
-                # user_id = user.id if user else None
-                # return self.objects.filter(Q(org_group__isnull=True)
-                #                            | (Q(published='True') & (Q(is_public='True')))
-                #                            | (Q(published='True') & Q(org_group__consumers__pk=user_id))
-                #                            | Q(org_group__guests__pk=user_id)
-                #                            | Q(org_group__members__pk=user_id)
-                #                            | Q(org_group__leaders__pk=user_id)
-                #                            ).distinct()
         else:
             return self.objects.none()
 

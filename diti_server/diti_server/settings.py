@@ -77,7 +77,8 @@ INSTALLED_APPS = [
     # Project modules
     # 'auth_custom',
     'core',
-    'steprepo'
+    'steprepo',
+    'testcatalog',
 ]
 
 MIDDLEWARE = [

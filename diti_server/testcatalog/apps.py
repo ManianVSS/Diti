@@ -1,8 +1,7 @@
 from django.apps import AppConfig
 
 
-class CoreConfig(AppConfig):
+class TestcatalogConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'core'
-    order = 1
-    verbose_name = 'Settings'
+    name = 'testcatalog'
+    order = 3

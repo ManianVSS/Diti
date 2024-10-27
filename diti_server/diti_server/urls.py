@@ -19,6 +19,7 @@ urlpatterns = [
                   # Modules
                   path('api/', include('core.urls')),
                   path('steprepo/', include('steprepo.urls')),
+                  path('testcatalog/', include('testcatalog.urls')),
 
                   # Swagger
                   path('swagger/', schema_view, name='docs'),
@@ -28,7 +29,7 @@ urlpatterns = [
                           TemplateView.as_view(template_name='errors/forbidden.html')),
 
                   re_path(
-                      '(^(?!(data|admin|swagger|api|steprepo)).*$)',
+                      '(^(?!(data|admin|swagger|api|steprepo|testcatalog)).*$)',
                       TemplateView.as_view(template_name='index.html')),
               ] + static(settings.STATIC_URL,
                          document_root=settings.STATICFILES_DIRS) \

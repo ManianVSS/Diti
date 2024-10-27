@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from .models import Attachment, Tag, StepDefinition, StepDefinitionCategory
+from .models import Attachment, Tag, TestCase, TestCategory
+
 
 class AttachmentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,15 +17,15 @@ class TagSerializer(serializers.ModelSerializer):
                   ]
 
 
-class StepDefinitionCategorySerializer(serializers.ModelSerializer):
+class TestCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = StepDefinitionCategory
+        model = TestCategory
         fields = ['id', 'parent', 'name', 'summary', 'description', 'parent', 'tags', 'org_group', 'created_at',
                   'updated_at', 'published', 'is_public', ]
 
 
-class StepDefinitionSerializer(serializers.ModelSerializer):
+class TestCaseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = StepDefinition
-        fields = ['id', 'parent', 'name', 'summary', 'description', 'parameters', 'data', 'code', 'org_group',
-                  'created_at', 'updated_at', 'published', 'is_public', ]
+        model = TestCase
+        fields = ['id', 'parent', 'name', 'summary', 'description', 'tags', 'steps', 'org_group', 'created_at',
+                  'updated_at', 'published', 'is_public', ]
