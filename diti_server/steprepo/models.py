@@ -1,6 +1,7 @@
 from django.db import models
+from django_yaml_field import YAMLField
 
-from core.models import OrgModel, OrgGroup
+from core.models import OrgModel, OrgGroup, PythonCodeField
 from core.storage import CustomFileSystemStorage
 
 
@@ -17,3 +18,20 @@ class Tag(OrgModel):
     name = models.CharField(max_length=256, unique=True)
     summary = models.CharField(max_length=300, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+
+
+class StepDefinition(OrgModel):
+    name = models.CharField(max_length=1024, unique=True)
+    summary = models.CharField(max_length=300, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    parameters = YAMLField(null=True, blank=True)
+    data = YAMLField(null=True, blank=True)
+    code = PythonCodeField(null=True, blank=True)
+
+
+class TestCase(OrgModel):
+    name = models.CharField(max_length=1024, unique=True)
+    summary = models.CharField(max_length=300, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    tags = models.ManyToManyField(Tag, related_name='test_cases', blank=True)
+    steps = YAMLField(null=True, blank=True)

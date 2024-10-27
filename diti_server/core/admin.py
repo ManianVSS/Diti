@@ -9,16 +9,24 @@ from django.contrib.auth.models import User, Group
 from django.core.exceptions import FieldDoesNotExist
 from django.db.models.signals import post_save
 from django.dispatch.dispatcher import receiver
+from django_ace import AceWidget
+from django_extensions.db.fields.json import JSONField
+from django_yaml_field import YAMLField
 from import_export.admin import ImportExportModelAdmin
 from massadmin.massadmin import MassEditMixin
 
-from .models import Configuration, OrgGroup, get_database_name, MyGroup, MyUser
+from .models import Configuration, OrgGroup, get_database_name, MyGroup, MyUser, PythonCodeField
 
 
 class CustomModelAdmin(MassEditMixin, ImportExportModelAdmin):
     save_as = True
     readonly_fields = ('id',)
     display_order = 999
+    formfield_overrides = {
+        YAMLField: {"widget": AceWidget(mode="yaml")},
+        JSONField: {"widget": AceWidget(mode="json")},
+        PythonCodeField: {"widget": AceWidget(mode="python")},
+    }
 
     # ordering = ('-id',)
 

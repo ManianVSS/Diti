@@ -1,6 +1,6 @@
 from django.contrib.auth.models import Group, User
 from django.db import models
-from django.db.models import Q
+from django.db.models import Q, TextField
 
 
 # Create your models here.
@@ -311,3 +311,7 @@ def get_orgs_with_consumer_privileges(user):
 
 
 User.add_to_class('get_orgs_with_consumer_privileges', get_orgs_with_consumer_privileges)
+
+
+class PythonCodeField(TextField):
+    pass
