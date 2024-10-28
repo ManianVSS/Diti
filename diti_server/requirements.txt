@@ -11,6 +11,7 @@ diff-match-patch==20241021
 Django==5.1.2
 django-ace==1.36.2
 django-allauth==65.1.0
+#django-autocomplete-light==3.11.0
 django-cors-headers==4.5.0
 django_crontab==0.7.1
 django-dbbackup==4.2.1
