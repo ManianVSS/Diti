@@ -43,6 +43,8 @@ class StepDefinitionAdmin(CustomModelAdmin):
         'created_at', 'updated_at', 'published', 'is_public',
         ('org_group', RelatedOnlyFieldListFilter),
         ('parent', RelatedOnlyFieldListFilter),
+        'type',
+        'status',
     )
-    search_fields = ['name', 'summary', 'description', 'code', ]
+    search_fields = ['name', 'summary', 'description', 'path', 'code', ]
     display_order = 4

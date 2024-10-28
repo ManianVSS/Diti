@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from .models import Attachment, Tag, StepDefinition, StepDefinitionCategory
 
+
 class AttachmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attachment
@@ -26,5 +27,5 @@ class StepDefinitionCategorySerializer(serializers.ModelSerializer):
 class StepDefinitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = StepDefinition
-        fields = ['id', 'parent', 'name', 'summary', 'description', 'parameters', 'data', 'code', 'org_group',
-                  'created_at', 'updated_at', 'published', 'is_public', ]
+        fields = ['id', 'parent', 'name', 'summary', 'description', 'type', 'status', 'parameters', 'data', 'path',
+                  'code', 'org_group', 'created_at', 'updated_at', 'published', 'is_public', ]

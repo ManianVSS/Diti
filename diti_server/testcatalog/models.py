@@ -28,7 +28,7 @@ class TestCategory(OrgModel):
                                   verbose_name='organization group', related_name='test_categories')
     parent = models.ForeignKey("self", on_delete=models.SET_NULL, null=True, blank=True,
                                related_name='sub_categories')
-    name = models.CharField(max_length=256, unique=True)
+    name = models.CharField(max_length=256)
     summary = models.CharField(max_length=256, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
